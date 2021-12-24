@@ -15,6 +15,8 @@ public class TimeController : MonoBehaviour
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
 
+    private float dayPercentage; // used in the GameBar
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,11 +45,13 @@ public class TimeController : MonoBehaviour
             TimeSpan timeSinceSunrise = CalculateTimeDifference(sunriseTime, currentTime.TimeOfDay);
             
             double percentage = timeSinceSunrise.TotalMinutes / sunriseToSunsetDuration.TotalMinutes;
-            Debug.Log("Day percentage: " + percentage);
+            // Debug.Log("Day percentage: " + percentage);
 
             // 0 at sunrise than increases linearly as the day progresses
             // reaches 180 at sunset
             sunLightRotation = Mathf.Lerp(0, 180, (float) percentage);
+
+            dayPercentage = (float) percentage;
         
 
         } else { // nightTime
@@ -55,10 +59,11 @@ public class TimeController : MonoBehaviour
             TimeSpan timeSinceSunset = CalculateTimeDifference(sunsetTime, currentTime.TimeOfDay);
             
             double percentage = timeSinceSunset.TotalMinutes / sunsetToSunRiseDuration.TotalMinutes;
-            Debug.Log("Night percentage: " + percentage);
+            // Debug.Log("Night percentage: " + percentage);
 
             sunLightRotation = Mathf.Lerp(180, 360, (float) percentage);
 
+            dayPercentage = 0;
         }
 
         sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right); // vector3.right = rotate around the x axes
@@ -71,5 +76,9 @@ public class TimeController : MonoBehaviour
             difference += TimeSpan.FromHours(24);
         }
         return difference;
+    }
+
+    public float GetDayPercentage(){
+        return dayPercentage;
     }
 }
