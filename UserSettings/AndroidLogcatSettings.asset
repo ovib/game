@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "950a23ce",
         "name": "com.DefaultCompany.game",
-        "processId": 22169,
+        "processId": 19943,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -24,6 +24,18 @@
             "deviceId": "950a23ce",
             "name": "com.DefaultCompany.game",
             "processId": 22169,
+            "exited": false
+        },
+        {
+            "deviceId": "950a23ce",
+            "name": "com.DefaultCompany.game",
+            "processId": 19632,
+            "exited": false
+        },
+        {
+            "deviceId": "950a23ce",
+            "name": "com.DefaultCompany.game",
+            "processId": 19943,
             "exited": false
         }
     ],

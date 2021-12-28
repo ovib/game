@@ -17,6 +17,9 @@ public class TimeController : MonoBehaviour
 
     private float dayPercentage; // used in the GameBar
 
+    [System.NonSerialized]
+    public bool isNight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +54,7 @@ public class TimeController : MonoBehaviour
             // reaches 180 at sunset
             sunLightRotation = Mathf.Lerp(0, 180, (float) percentage);
 
+            isNight = false;
             dayPercentage = (float) percentage;
         
 
@@ -63,6 +67,7 @@ public class TimeController : MonoBehaviour
 
             sunLightRotation = Mathf.Lerp(180, 360, (float) percentage);
 
+            isNight = true;
             dayPercentage = 0;
         }
 
@@ -81,4 +86,5 @@ public class TimeController : MonoBehaviour
     public float GetDayPercentage(){
         return dayPercentage;
     }
+
 }

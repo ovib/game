@@ -38,5 +38,6 @@ public class ThirdPersonInput : MonoBehaviour
           modelTransform.rotation = Quaternion.LookRotation(new Vector3(joystickDirection.x, 0, joystickDirection.y) * speed * Time.deltaTime);
       }
     }
+    
 
 }
