@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 5935788730007040312}
   - component: {fileID: 8582739889872417886}
   m_Layer: 0
-  m_Name: Collider
+  m_Name: Shelter Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

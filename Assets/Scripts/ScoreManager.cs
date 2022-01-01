@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
-
     public ColliderDetector colliderDetector;
     public TimeController timeController;
     public Canvas canvas;
-
     private GameObject deathPanel;
     private GameObject gamePanel;
 

@@ -87,4 +87,8 @@ public class TimeController : MonoBehaviour
         return dayPercentage;
     }
 
+    public void increaseDay(int minutes){
+        currentTime = currentTime.AddMinutes(- (double) minutes);
+    }
+
 }

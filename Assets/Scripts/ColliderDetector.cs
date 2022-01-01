@@ -8,12 +8,14 @@ public class ColliderDetector : MonoBehaviour
     public bool insideShelter = false;
 
     void OnTriggerEnter(Collider other){
-        insideShelter = true;
-        // Debug.Log("character inside shelter" + other.gameObject.name);
+        if(other.gameObject.name == "Shelter Collider"){
+            insideShelter = true;
+        }
     }
 
     void OnTriggerExit(Collider other){
-        insideShelter = false;
-        // Debug.Log(gameObject.name + "character outside shelter" + other.gameObject.name);
+        if(other.gameObject.name == "Shelter Collider"){
+            insideShelter = false;
+        }
     }
 }
