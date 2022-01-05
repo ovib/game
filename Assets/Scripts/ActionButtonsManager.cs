@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ActionButtonsManager : MonoBehaviour
 {
+    public TimeController timeController;
     public GameObject woodButton;
     public GameObject buildButton;
+    public GameObject sleepButton;
 
     public GameObject character;
 
@@ -13,13 +15,17 @@ public class ActionButtonsManager : MonoBehaviour
     private ObstacleDetectorController obstacleDetectorController;
     private WoodButtonController woodButtonController;
     private BuildButtonController buildButtonController;
+    private SleepButtonController sleepButtonController;
+    private CharacterInsideShelterDetector characterInsideShelterDetector;
 
     // Start is called before the first frame update
     void Start()
     {
         obstacleDetectorController = character.transform.GetChild(2).gameObject.GetComponent<ObstacleDetectorController>();
+        characterInsideShelterDetector = character.GetComponent<CharacterInsideShelterDetector>();
         woodButtonController = woodButton.GetComponent<WoodButtonController>();
         buildButtonController = buildButton.GetComponent<BuildButtonController>();
+        sleepButtonController = sleepButton.GetComponent<SleepButtonController>();
     }
 
     // Update is called once per frame
@@ -37,11 +43,16 @@ public class ActionButtonsManager : MonoBehaviour
             {
                 buildButtonController.Enable(character);
             }
-
         }
 
         if(buildButtonController.buildDone){
             buildButton.SetActive(false);
+        }
+
+        if(characterInsideShelterDetector.insideShelter && timeController.isNight){
+            sleepButton.SetActive(true);
+        } else {
+            sleepButton.SetActive(false);
         }
 
     }

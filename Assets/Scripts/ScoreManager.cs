@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
-    public ColliderDetector colliderDetector;
+    public CharacterInsideShelterDetector characterInsideShelterDetector;
     public TimeController timeController;
     public Canvas canvas;
     private GameObject deathPanel;
@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timeController.isNight && !colliderDetector.insideShelter){
+        if(timeController.isNight && !characterInsideShelterDetector.insideShelter){
             OnDeath();
         }
     }

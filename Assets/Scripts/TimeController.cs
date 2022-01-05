@@ -1,11 +1,14 @@
 using UnityEngine;
 using TMPro;
 using System;
+using System.Collections;
 
 public class TimeController : MonoBehaviour
 {
 
     public float timeMultiplier;
+
+    public float additionalFastNightMultiplier = 25;
     public float startHour;
     public float sunriseHour;
     public float sunsetHour;
@@ -89,6 +92,19 @@ public class TimeController : MonoBehaviour
 
     public void increaseDay(int minutes){
         currentTime = currentTime.AddMinutes(- (double) minutes);
+    }
+
+    // called on sleep button pressed, makes night super fast
+    public void fastNight(){
+        StartCoroutine(fastNightCoroutine());
+    }
+
+    IEnumerator fastNightCoroutine(){
+        timeMultiplier = timeMultiplier * additionalFastNightMultiplier;
+        while(isNight){
+            yield return null;
+        }
+        timeMultiplier = timeMultiplier / additionalFastNightMultiplier;
     }
 
 }

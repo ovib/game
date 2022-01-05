@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColliderDetector : MonoBehaviour
+public class CharacterInsideShelterDetector : MonoBehaviour
 {
-    [System.NonSerialized]
+    // [System.NonSerialized]
     public bool insideShelter = false;
 
     void OnTriggerEnter(Collider other){

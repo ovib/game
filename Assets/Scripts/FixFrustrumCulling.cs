@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisableFrustrumCulling : MonoBehaviour
+public class FixFrustrumCulling : MonoBehaviour
 {
 
     private Camera cam;
 
      void Start()
      {
-         Debug.Log("start DisableFrustrumCulling");
          cam = this.GetComponent<Camera>();
      }
  
