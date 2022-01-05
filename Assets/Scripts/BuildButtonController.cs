@@ -7,42 +7,71 @@ using UnityEngine.UI;
 public class BuildButtonController : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
 {
 
+    public GameObject shelter;
     private RectTransform backgroundRectTransform;
-    private Image backgoroundImage;
+    private Image backgroundImage;
+    private Color defaultBackgorundColor;
     private Vector2 backgroundSize;
+    private GameObject outline;
+
+    private GameObject character;
+    private bool isEnabled = true;
+
+    public bool buildDone = false;
 
 
-    // Start is called before the first frame update
-    void Start()
+    // Awake is called even if the script is disabled. 
+    void Awake()
     {
+        outline = transform.GetChild(0).gameObject;
         GameObject backgroundGameObject = transform.GetChild(1).gameObject;
         backgroundRectTransform = backgroundGameObject.GetComponent<RectTransform>();
-        backgoroundImage = backgroundGameObject.GetComponent<Image>();
+        backgroundImage = backgroundGameObject.GetComponent<Image>();
+        defaultBackgorundColor = backgroundImage.color;
         backgroundSize = backgroundRectTransform.sizeDelta;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("BUILD PRESSED");
+        if(isEnabled)
+        {
+            buidShelter();
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        backgroundRectTransform.sizeDelta = new Vector2(312, 312);
-        var tempColor = backgoroundImage.color;
-        tempColor.a = 255;
-        backgoroundImage.color = tempColor;
+        if(isEnabled)
+        {
+            backgroundRectTransform.sizeDelta = new Vector2(312, 312);
+            var tempColor = backgroundImage.color;
+            tempColor.a = 255;
+            backgroundImage.color = tempColor;
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         backgroundRectTransform.sizeDelta = backgroundSize;
+    }
+
+    public void Enable(GameObject character){
+        isEnabled = true;
+        this.character = character;
+        outline.SetActive(true);
+        backgroundImage.color = defaultBackgorundColor;
+    }
+    
+    public void Disable(){
+        isEnabled = false;
+        outline.SetActive(false);
+        backgroundImage.color = new Color(255, 0, 0, 128);
+    }
+
+    private void buidShelter(){
+         Vector3 position = character.transform.GetChild(2).position;
+        Instantiate(shelter, position, Quaternion.identity);
+        buildDone = true;
     }
 
     
