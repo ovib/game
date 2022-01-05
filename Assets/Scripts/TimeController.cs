@@ -14,7 +14,9 @@ public class TimeController : MonoBehaviour
     public float sunsetHour;
     public Light sunLight;
     public TextMeshProUGUI timeText;
-    private DateTime currentTime;
+
+    [System.NonSerialized]
+    public DateTime currentTime;
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
 
@@ -100,8 +102,9 @@ public class TimeController : MonoBehaviour
     }
 
     IEnumerator fastNightCoroutine(){
+        DateTime startDate = currentTime.Date;
         timeMultiplier = timeMultiplier * additionalFastNightMultiplier;
-        while(isNight){
+        while(isNight || currentTime.Date == startDate){
             yield return null;
         }
         timeMultiplier = timeMultiplier / additionalFastNightMultiplier;

@@ -13,6 +13,8 @@ public class SleepButtonController : MonoBehaviour, IPointerClickHandler, IPoint
     private GameObject outline;
     public TimeController timeController;
 
+    public bool sleepPressed = false;
+
 
     // Awake is called even if the script is disabled. 
     void Awake()
@@ -34,6 +36,7 @@ public class SleepButtonController : MonoBehaviour, IPointerClickHandler, IPoint
     public void OnPointerClick(PointerEventData eventData)
     {
         timeController.fastNight();
+        sleepPressed = true;
     }
 
      public void OnPointerDown(PointerEventData eventData)

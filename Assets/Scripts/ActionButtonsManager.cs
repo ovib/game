@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ActionButtonsManager : MonoBehaviour
 {
@@ -49,9 +50,10 @@ public class ActionButtonsManager : MonoBehaviour
             buildButton.SetActive(false);
         }
 
-        if(characterInsideShelterDetector.insideShelter && timeController.isNight){
+        
+        if(characterInsideShelterDetector.insideShelter && !sleepButtonController.sleepPressed){
             sleepButton.SetActive(true);
-        } else {
+        } else if (sleepButtonController.sleepPressed){
             sleepButton.SetActive(false);
         }
 
