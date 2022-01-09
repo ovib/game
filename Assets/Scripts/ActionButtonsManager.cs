@@ -5,7 +5,7 @@ using System;
 
 public class ActionButtonsManager : MonoBehaviour
 {
-    public TimeController timeController;
+    public TimeManager timeManager;
     public GameObject woodButton;
     public GameObject buildButton;
     public GameObject sleepButton;

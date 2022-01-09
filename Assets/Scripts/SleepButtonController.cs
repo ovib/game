@@ -11,7 +11,7 @@ public class SleepButtonController : MonoBehaviour, IPointerClickHandler, IPoint
     private Color defaultBackgorundColor;
     private Vector2 backgroundSize;
     private GameObject outline;
-    public TimeController timeController;
+    public TimeManager timeManager;
 
     public bool sleepPressed = false;
 
@@ -35,7 +35,7 @@ public class SleepButtonController : MonoBehaviour, IPointerClickHandler, IPoint
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        timeController.fastNight();
+        timeManager.fastNight();
         sleepPressed = true;
     }
 
@@ -45,7 +45,6 @@ public class SleepButtonController : MonoBehaviour, IPointerClickHandler, IPoint
         var tempColor = backgroundImage.color;
         tempColor.a = 255;
          backgroundImage.color = tempColor;
-        
     }
 
     public void OnPointerUp(PointerEventData eventData)

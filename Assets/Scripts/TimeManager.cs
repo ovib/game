@@ -3,7 +3,7 @@ using TMPro;
 using System;
 using System.Collections;
 
-public class TimeController : MonoBehaviour
+public class TimeManager : MonoBehaviour
 {
 
     public float timeMultiplier;
@@ -25,12 +25,15 @@ public class TimeController : MonoBehaviour
     [System.NonSerialized]
     public bool isNight;
 
+    private DateTime nextDay;
+
     // Start is called before the first frame update
     void Start()
     {
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(startHour);
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
+        UpdateNextDay();
     }
 
     // Update is called once per frame
@@ -38,6 +41,7 @@ public class TimeController : MonoBehaviour
     {
         UpdateTimeOfDay();
         RotateSun();
+        NewDayRoutine();
     }
 
     private void UpdateTimeOfDay(){
@@ -45,7 +49,8 @@ public class TimeController : MonoBehaviour
         if(timeText.text != null) timeText.text = currentTime.ToString("HH:mm");
     }
 
-    private void RotateSun(){
+    private void RotateSun()
+    {
         float sunLightRotation;
 
         if(currentTime.TimeOfDay > sunriseTime && currentTime.TimeOfDay < sunsetTime){ // daytime
@@ -101,13 +106,30 @@ public class TimeController : MonoBehaviour
         StartCoroutine(fastNightCoroutine());
     }
 
-    IEnumerator fastNightCoroutine(){
+    private IEnumerator fastNightCoroutine(){
         DateTime startDate = currentTime.Date;
         timeMultiplier = timeMultiplier * additionalFastNightMultiplier;
         while(isNight || currentTime.Date == startDate){
             yield return null;
         }
         timeMultiplier = timeMultiplier / additionalFastNightMultiplier;
+    }
+
+    private void NewDayRoutine(){
+        if(currentTime.Date == nextDay){
+            UpdateNextDay();
+            // GenerateNewSunBits();
+            // GenerateNewWoodSticks();
+            DestroyShelter();
+        }
+    }
+
+    private void DestroyShelter(){
+        Debug.Log("Destroy SHELTER");
+    }
+
+    private void UpdateNextDay(){
+        nextDay = currentTime.Date.AddDays(1);
     }
 
 }

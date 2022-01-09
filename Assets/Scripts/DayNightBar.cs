@@ -7,11 +7,11 @@ using UnityEngine.UI;
 public class DayNightBar : MonoBehaviour
 {
     public Slider slider;
-    public TimeController timeController;
+    public TimeManager timeManager;
 
     void Update()
     {
-        float dayPercentage = timeController.GetDayPercentage();
+        float dayPercentage = timeManager.GetDayPercentage();
         if(dayPercentage == 0){ // is Night
             slider.value = slider.maxValue;
         } else {

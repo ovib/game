@@ -6,11 +6,11 @@ public class SunBitController : MonoBehaviour
 {
 
     public int minutes = 30;
-    public TimeController timeController;
+    public TimeManager timeManager;
     
     void OnTriggerEnter(Collider other){
         if(other.name == "Character"){
-            timeController.increaseDay(minutes);
+            timeManager.increaseDay(minutes);
              Destroy(transform.parent.gameObject);
         }
     }
