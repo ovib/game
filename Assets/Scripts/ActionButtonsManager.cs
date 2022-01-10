@@ -19,6 +19,8 @@ public class ActionButtonsManager : MonoBehaviour
     private SleepButtonController sleepButtonController;
     private CharacterInsideShelterDetector characterInsideShelterDetector;
 
+    private bool toSartNewDay = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,11 @@ public class ActionButtonsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(woodButtonController.LimitReached)
+        if(toSartNewDay){
+            OnNewDay();
+        }
+
+        if(woodButtonController.limitReached)
         {
             woodButton.SetActive(false);
             buildButton.SetActive(true);
@@ -42,7 +48,7 @@ public class ActionButtonsManager : MonoBehaviour
                 buildButtonController.Disable();
             } else 
             {
-                buildButtonController.Enable(character);
+                buildButtonController.Enable();
             }
         }
 
@@ -57,5 +63,18 @@ public class ActionButtonsManager : MonoBehaviour
             sleepButton.SetActive(false);
         }
 
+    }
+
+    public void OnNewDay(){
+        Debug.Log("ON NEW DAY");
+        
+        if(!characterInsideShelterDetector.insideShelter){
+            woodButtonController.Reset();
+            woodButton.SetActive(true);
+            Debug.Log("wood active");
+            toSartNewDay = false;
+        } else {
+            toSartNewDay = true;
+        }
     }
 }

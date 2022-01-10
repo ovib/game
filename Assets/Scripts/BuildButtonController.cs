@@ -6,19 +6,16 @@ using UnityEngine.UI;
 
 public class BuildButtonController : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
 {
-
-    public GameObject shelter;
     private RectTransform backgroundRectTransform;
     private Image backgroundImage;
     private Color defaultBackgorundColor;
     private Vector2 backgroundSize;
     private GameObject outline;
-
-    private GameObject character;
     private bool isEnabled = true;
 
     public bool buildDone = false;
 
+    public ShelterController shelterController;
 
     // Awake is called even if the script is disabled. 
     void Awake()
@@ -33,9 +30,8 @@ public class BuildButtonController : MonoBehaviour, IPointerClickHandler, IPoint
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(isEnabled)
-        {
-            buidShelter();
+        if(isEnabled){
+            BuidShelter();
         }
     }
 
@@ -55,9 +51,8 @@ public class BuildButtonController : MonoBehaviour, IPointerClickHandler, IPoint
         backgroundRectTransform.sizeDelta = backgroundSize;
     }
 
-    public void Enable(GameObject character){
+    public void Enable(){
         isEnabled = true;
-        this.character = character;
         outline.SetActive(true);
         backgroundImage.color = defaultBackgorundColor;
     }
@@ -68,9 +63,8 @@ public class BuildButtonController : MonoBehaviour, IPointerClickHandler, IPoint
         backgroundImage.color = new Color(255, 0, 0, 128);
     }
 
-    private void buidShelter(){
-         Vector3 position = character.transform.GetChild(2).position;
-        Instantiate(shelter, position, Quaternion.identity);
+    private void BuidShelter(){
+        shelterController.CreateShelter();
         buildDone = true;
     }
 

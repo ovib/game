@@ -1,13 +1,13 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
 using System;
-using System.Collections;
 
 public class TimeManager : MonoBehaviour
 {
-
+    public ShelterController shelterController;
+    public ActionButtonsManager actionButtonsManager;
     public float timeMultiplier;
-
     public float additionalFastNightMultiplier = 25;
     public float startHour;
     public float sunriseHour;
@@ -118,18 +118,14 @@ public class TimeManager : MonoBehaviour
     private void NewDayRoutine(){
         if(currentTime.Date == nextDay){
             UpdateNextDay();
+            actionButtonsManager.OnNewDay();
             // GenerateNewSunBits();
             // GenerateNewWoodSticks();
-            DestroyShelter();
+            shelterController.DestroyShelter();
         }
-    }
-
-    private void DestroyShelter(){
-        Debug.Log("Destroy SHELTER");
     }
 
     private void UpdateNextDay(){
         nextDay = currentTime.Date.AddDays(1);
     }
-
 }

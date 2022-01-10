@@ -10,7 +10,7 @@ public class WoodButtonController : MonoBehaviour
     private TextMeshProUGUI text;
 
     // [System.NonSerialized]
-    public bool LimitReached = false;
+    public bool limitReached = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,12 +28,18 @@ public class WoodButtonController : MonoBehaviour
     }
 
     void Update(){
-        LimitReached = current >= minSticks;
+        limitReached = current >= minSticks;
     }
 
     public void UpdateButton(){
         current +=1;
         text.text = current + " / " + minSticks;
+    }
+
+    public void Reset(){
+        current = -1;
+        UpdateButton();
+        limitReached = false;
     }
 
 
