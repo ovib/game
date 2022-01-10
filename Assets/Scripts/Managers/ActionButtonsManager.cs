@@ -66,12 +66,9 @@ public class ActionButtonsManager : MonoBehaviour
     }
 
     public void OnNewDay(){
-        Debug.Log("ON NEW DAY");
-        
         if(!characterInsideShelterDetector.insideShelter){
             woodButtonController.Reset();
             woodButton.SetActive(true);
-            Debug.Log("wood active");
             toSartNewDay = false;
         } else {
             toSartNewDay = true;

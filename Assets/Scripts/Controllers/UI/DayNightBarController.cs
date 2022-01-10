@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class DayNightBar : MonoBehaviour
+public class DayNightBarController : MonoBehaviour
 {
     public Slider slider;
     public TimeManager timeManager;

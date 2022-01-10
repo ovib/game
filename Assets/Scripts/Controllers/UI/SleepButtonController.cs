@@ -12,7 +12,6 @@ public class SleepButtonController : MonoBehaviour, IPointerClickHandler, IPoint
     private Vector2 backgroundSize;
     private GameObject outline;
     public TimeManager timeManager;
-
     public bool sleepPressed = false;
 
 
@@ -25,12 +24,6 @@ public class SleepButtonController : MonoBehaviour, IPointerClickHandler, IPoint
         backgroundImage = backgroundGameObject.GetComponent<Image>();
         defaultBackgorundColor = backgroundImage.color;
         backgroundSize = backgroundRectTransform.sizeDelta;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void OnPointerClick(PointerEventData eventData)
