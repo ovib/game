@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18386805, g: 0.22901511, b: 0.30311215, a: 1}
+  m_IndirectSpecularColor: {r: 0.18388179, g: 0.22903131, b: 0.3031207, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3125,7 +3125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WoodStickPrefab: {fileID: 0}
-  num: 5
+  num: 30
   minPosX: -88
   maxPosX: 90
   minPosZ: -145
@@ -3313,7 +3313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WoodStickPrefab: {fileID: 0}
-  num: 5
+  num: 20
   minPosX: -88
   maxPosX: 90
   minPosZ: -145
@@ -11266,11 +11266,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sunBitPrefab: {fileID: 4220784700303599888, guid: 6de2e828051364ef68a731f369283cef,
     type: 3}
-  num: 5
+  num: 25
   minPosX: -88
   maxPosX: 90
-  minPosZ: -145
-  maxPosZ: 0.3
+  minPosZ: -70
+  maxPosZ: 74
   posY: 2.4
 --- !u!1001 &2111316235
 PrefabInstance:
