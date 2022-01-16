@@ -17,7 +17,6 @@ public class SunBitsGenerator : MonoBehaviour
 
     private System.Random rand;
 
-    // Start is called before the first frame update
     void Start()
     {
         generatedSunBits = new GameObject[num];

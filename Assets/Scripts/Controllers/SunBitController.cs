@@ -11,5 +11,11 @@ public class SunBitController : MonoBehaviour
     void Start(){
         timeManager = GameObject.Find("TimeManager").GetComponent<TimeManager>();
     }
+     void OnTriggerEnter(Collider other){
+        if(other.name == "Character"){
+            timeManager.increaseDay(minutes);
+             Destroy(transform.parent.gameObject);
+        }
+     }
 
 }

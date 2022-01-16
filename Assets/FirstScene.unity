@@ -2332,6 +2332,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa6105287f77b1240a0017f7d23434c2, type: 3}
+--- !u!1 &419419110 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1255758057252634, guid: 0761e9c9debdfd34fa20f5859c6f08ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 64902751}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &450811099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3081,56 +3087,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1544341468}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &598468312
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 598468313}
-  - component: {fileID: 598468314}
-  m_Layer: 0
-  m_Name: SunBitsGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &598468313
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598468312}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 100, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1148016791}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &598468314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598468312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ecc15a353c794f479ac1840dd69ef30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WoodStickPrefab: {fileID: 0}
-  num: 30
-  minPosX: -88
-  maxPosX: 90
-  minPosZ: -145
-  maxPosZ: 0.3
-  minPosY: 2.4
 --- !u!1001 &599310929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3298,7 +3254,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1148016791}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &607585588
 MonoBehaviour:
@@ -3312,13 +3268,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecc15a353c794f479ac1840dd69ef30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WoodStickPrefab: {fileID: 0}
-  num: 20
+  WoodStickPrefab: {fileID: 419419110}
+  num: 10
   minPosX: -88
   maxPosX: 90
-  minPosZ: -145
-  maxPosZ: 0.3
-  minPosY: 2.4
+  minPosZ: -70
+  maxPosZ: 74
+  posY: 0.18
+  capsuleHeight: 5
 --- !u!1001 &642370924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5795,7 +5752,6 @@ Transform:
   - {fileID: 1064216026}
   - {fileID: 905045362}
   - {fileID: 545743020}
-  - {fileID: 598468313}
   - {fileID: 607585587}
   - {fileID: 2102914715}
   m_Father: {fileID: 0}
@@ -7229,7 +7185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1363165511
 Transform:
   m_ObjectHideFlags: 0
@@ -8650,7 +8606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shelterController: {fileID: 545743019}
   actionButtonsManager: {fileID: 905045361}
-  timeMultiplier: 100
+  timeMultiplier: 1000
   additionalFastNightMultiplier: 25
   startHour: 12
   sunriseHour: 7
@@ -11250,7 +11206,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1148016791}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2102914716
 MonoBehaviour:
@@ -11794,5 +11750,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b65893fd2814051b1e546df49bb390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSticks: 1
+  minSticks: 5
   limitReached: 0
