@@ -46,4 +46,19 @@ public class WoodSticksGenerator : MonoBehaviour
         double num = (sample * range) + min;
         return (float) num;
     }
+
+     public void OnNewDay(){
+        DestroysCurrentSticks();
+        Generate();
+    }
+
+
+    private void DestroysCurrentSticks(){
+        foreach (GameObject stick in generatedWoodSticks)
+        {
+            if(stick != null){
+                Destroy(stick);  
+            }
+        }
+    }
 }

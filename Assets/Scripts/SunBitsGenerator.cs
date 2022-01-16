@@ -47,4 +47,20 @@ public class SunBitsGenerator : MonoBehaviour
         double num = (sample * range) + min;
         return (float) num;
     }
+
+    public void OnNewDay(){
+        DestroysCurrentBits();
+        Generate();
+    }
+
+
+    private void DestroysCurrentBits(){
+        foreach (GameObject sunBit in generatedSunBits)
+        {
+            if(sunBit != null){
+                Destroy(sunBit);  
+            }
+        }
+    }
+
 }

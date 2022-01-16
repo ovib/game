@@ -15,6 +15,9 @@ public class TimeManager : MonoBehaviour
     public Light sunLight;
     public TextMeshProUGUI timeText;
 
+    public SunBitsGenerator sunBitsGenerator;
+    public WoodSticksGenerator woodSticksGenerator;
+
     [System.NonSerialized]
     public DateTime currentTime;
     private TimeSpan sunriseTime;
@@ -119,8 +122,8 @@ public class TimeManager : MonoBehaviour
         if(currentTime.Date == nextDay){
             UpdateNextDay();
             actionButtonsManager.OnNewDay();
-            // GenerateNewSunBits();
-            // GenerateNewWoodSticks();
+            woodSticksGenerator.OnNewDay();
+            sunBitsGenerator.OnNewDay();
             shelterController.DestroyShelter();
         }
     }
