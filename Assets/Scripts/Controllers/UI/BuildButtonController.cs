@@ -68,5 +68,9 @@ public class BuildButtonController : MonoBehaviour, IPointerClickHandler, IPoint
         buildDone = true;
     }
 
+    public void Reset(){
+        buildDone = false;
+    }
+
     
 }

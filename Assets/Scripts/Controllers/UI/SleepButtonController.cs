@@ -44,4 +44,8 @@ public class SleepButtonController : MonoBehaviour, IPointerClickHandler, IPoint
     {
         backgroundRectTransform.sizeDelta = backgroundSize;
     }
+
+    public void Reset(){
+        sleepPressed = false;
+    }
 }

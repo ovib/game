@@ -125,6 +125,7 @@ public class TimeManager : MonoBehaviour
             woodSticksGenerator.OnNewDay();
             sunBitsGenerator.OnNewDay();
             shelterController.DestroyShelter();
+            shelterController.Reset();
         }
     }
 

@@ -46,4 +46,8 @@ public class ShelterController : MonoBehaviour
      }
   }
 
+  public void Reset(){
+    destroyed = false;
+  }
+
 }

@@ -9,9 +9,7 @@ public class ActionButtonsManager : MonoBehaviour
     public GameObject woodButton;
     public GameObject buildButton;
     public GameObject sleepButton;
-
     public GameObject character;
-
     private GameObject shelter;
     private ObstacleDetectorController obstacleDetectorController;
     private WoodButtonController woodButtonController;
@@ -68,6 +66,8 @@ public class ActionButtonsManager : MonoBehaviour
     public void OnNewDay(){
         if(!characterInsideShelterDetector.insideShelter){
             woodButtonController.Reset();
+            buildButtonController.Reset();
+            sleepButtonController.Reset();
             woodButton.SetActive(true);
             toSartNewDay = false;
         } else {
