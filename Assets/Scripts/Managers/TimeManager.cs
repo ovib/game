@@ -8,6 +8,7 @@ public class TimeManager : MonoBehaviour
     public ShelterController shelterController;
     public ActionButtonsManager actionButtonsManager;
     public float timeMultiplier;
+    public float percentageIncreaseOnNewDay = 0.1f;
     public float additionalFastNightMultiplier = 25;
     public float startHour;
     public float sunriseHour;
@@ -121,6 +122,7 @@ public class TimeManager : MonoBehaviour
     private void NewDayRoutine(){
         if(currentTime.Date == nextDay){
             UpdateNextDay();
+            IncreaseDifficulty();
             actionButtonsManager.OnNewDay();
             woodSticksGenerator.OnNewDay();
             sunBitsGenerator.OnNewDay();
@@ -131,5 +133,9 @@ public class TimeManager : MonoBehaviour
 
     private void UpdateNextDay(){
         nextDay = currentTime.Date.AddDays(1);
+    }
+
+    private void IncreaseDifficulty(){
+        timeMultiplier += timeMultiplier * percentageIncreaseOnNewDay;
     }
 }

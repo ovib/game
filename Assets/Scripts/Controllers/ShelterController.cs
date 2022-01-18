@@ -22,7 +22,7 @@ public class ShelterController : MonoBehaviour
   }
   public void CreateShelter(){
     position = character.transform.GetChild(2).position;
-    shelter = Instantiate(shelterPrefab, position, Quaternion.identity);
+    shelter = Instantiate(shelterPrefab, position, Quaternion.Euler(0, -90, 0));
   }
 
   public void DestroyShelter(){

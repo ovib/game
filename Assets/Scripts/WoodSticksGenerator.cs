@@ -34,7 +34,7 @@ public class WoodSticksGenerator : MonoBehaviour
             bool willCollide = Physics.CheckCapsule(new Vector3(posX, posY * capsuleHeight, posZ), new Vector3(posX, posY * capsuleHeight, (posZ + 2)), 0.15f);
             
             if(!willCollide){
-                generatedWoodSticks[count] = Instantiate(WoodStickPrefab, new Vector3(posX, posY, posZ), Quaternion.identity);
+                generatedWoodSticks[count] = Instantiate(WoodStickPrefab, new Vector3(posX, posY, posZ), Quaternion.Euler(0, 90, 0));
                 count++;
             } 
         }
