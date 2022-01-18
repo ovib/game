@@ -10,7 +10,15 @@ public class ThirdPersonInput : MonoBehaviour
     public FloatingJoystick joystick;
     public float walkSpeed = 10;
     public float runSpeed = 25;
-    public float moveSpeed;
+    private float moveSpeed;
+    
+    public float groundCheckDistance;
+    public LayerMask groundMask;
+    private Vector3 velocity;
+    private float gravity;
+    public bool isGrounded;
+
+
     private Transform objectTransform; // includes camera
     private Transform modelTransform;
     private CharacterController myCaracterController;
