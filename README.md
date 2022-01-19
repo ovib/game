@@ -7,7 +7,7 @@
 
 ## Installazione 
 - Clonare la repository e compilare il progetto da Unity
-- In alternativa installre il file 2050_GAME.apk
+- In alternativa installre il file 2050_GAME.apk per provare il gioco subito
 
 ## Come si gioca
  - L'obiettivo del gioco è sopravviere il più possibile 
