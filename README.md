@@ -1,4 +1,4 @@
-# 2100: Hide and Seek to Survive
+# 2050: Hide and seek to survive
 > _Catastrofi naturali ed erruzioni solari hanno messo a dura prova la sopravvivenza degli esseri umani._
 
 > _Le notti che diventano sempre più lunghe uccidono all’istante chi non è al riparo._
