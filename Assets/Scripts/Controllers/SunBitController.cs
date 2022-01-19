@@ -13,7 +13,7 @@ public class SunBitController : MonoBehaviour
     }
      void OnTriggerEnter(Collider other){
         if(other.name == "Character"){
-            timeManager.increaseDay(minutes);
+            timeManager.IncreaseDay(minutes);
              Destroy(transform.parent.gameObject);
         }
      }

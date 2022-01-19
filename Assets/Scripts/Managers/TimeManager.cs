@@ -102,8 +102,16 @@ public class TimeManager : MonoBehaviour
         return dayPercentage;
     }
 
-    public void increaseDay(int minutes){
-        currentTime = currentTime.AddMinutes(- (double) minutes);
+    public void IncreaseDay(int minutes){
+        DateTime increasedTime =  currentTime.AddMinutes(- (double) minutes);
+        DateTime currentDaySunriseTime = DateTime.Now.Date + TimeSpan.FromHours(sunriseHour);
+
+        if(increasedTime < currentDaySunriseTime){ // prevent from going back to the previous night
+            currentTime = currentDaySunriseTime;
+        } else {
+            currentTime = currentTime.AddMinutes(- (double) minutes);
+        }
+        
     }
 
     // called on sleep button pressed, makes night super fast
