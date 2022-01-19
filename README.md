@@ -14,5 +14,6 @@
  - Trascina il dito sullo schermo per muovere il personaggio
  - Raccogli pezzi di legno per costruirti un riparo prima dell'arrivo della notte
  - Raccogli i pezzi di sole per allungare leggermente la giornata in corso
- - Se arriva notte e non sei dentro al riparo perdi e fai attenzione: le giornate durano sempre di meno!
+ - Se arriva notte e non sei dentro al riparo perdi
+ - Fai attezione: le giornate durano sempre di meno!
  
