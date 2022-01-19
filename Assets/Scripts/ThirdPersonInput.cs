@@ -15,9 +15,8 @@ public class ThirdPersonInput : MonoBehaviour
     public float groundCheckDistance;
     public LayerMask groundMask;
     private Vector3 velocity;
-    private float gravity;
+    public float gravity;
     public bool isGrounded;
-
 
     private Transform objectTransform; // includes camera
     private Transform modelTransform;
@@ -43,23 +42,35 @@ public class ThirdPersonInput : MonoBehaviour
     }
 
     private void Move(){
-        verticalMovement =  joystick.Vertical;
-        horizontalMovement = joystick.Horizontal;
-        Vector2 joystickDirection = joystick.Direction;
-        // Debug.Log("Vertical: " + verticalMovement + ". Horizontal: " + horizontalMovement);
+        isGrounded = Physics.CheckSphere(transform.position, groundCheckDistance, groundMask);
 
-        if(verticalMovement != 0 && horizontalMovement != 0){
-          myCaracterController.Move(objectTransform.TransformDirection(new Vector3(horizontalMovement, 0, verticalMovement)  * moveSpeed * Time.deltaTime));  
-          modelTransform.rotation = Quaternion.LookRotation(new Vector3(joystickDirection.x, 0, joystickDirection.y) * moveSpeed * Time.deltaTime);
+        
+        if(isGrounded && velocity.y < 0){  // if grounded 
+            velocity.y = -2; // stop gravity
         }
 
-        if(verticalMovement == 0 && horizontalMovement == 0){
-            Idle();
-        } else if(Math.Abs(verticalMovement) < 0.51f && Math.Abs(horizontalMovement) < 0.51f){
-            Walk();
-        } else {
-            Run();
+        if(isGrounded){
+            verticalMovement =  joystick.Vertical;
+            horizontalMovement = joystick.Horizontal;
+            Vector2 joystickDirection = joystick.Direction;
+            // Debug.Log("Vertical: " + verticalMovement + ". Horizontal: " + horizontalMovement);
+
+            if(verticalMovement != 0 && horizontalMovement != 0){
+                myCaracterController.Move(objectTransform.TransformDirection(new Vector3(horizontalMovement, 0, verticalMovement)  * moveSpeed * Time.deltaTime));  
+                modelTransform.rotation = Quaternion.LookRotation(new Vector3(joystickDirection.x, 0, joystickDirection.y) * moveSpeed * Time.deltaTime);
+            }
+
+            if(verticalMovement == 0 && horizontalMovement == 0){
+                Idle();
+            } else if(Math.Abs(verticalMovement) < 0.51f && Math.Abs(horizontalMovement) < 0.51f){
+                Walk();
+            } else {
+                Run();
+            }
         }
+
+        velocity.y += gravity * Time.deltaTime; // calculate gravity
+        myCaracterController.Move(velocity * Time.deltaTime); // apply gravity
     }
 
     private void Idle(){
