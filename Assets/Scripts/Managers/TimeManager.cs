@@ -15,12 +15,11 @@ public class TimeManager : MonoBehaviour
     public float sunsetHour;
     public Light sunLight;
     public TextMeshProUGUI timeText;
-
     public SunBitsGenerator sunBitsGenerator;
     public WoodSticksGenerator woodSticksGenerator;
 
     [System.NonSerialized]
-    public DateTime currentTime;
+    public DateTime currentTime; 
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
 
@@ -30,6 +29,8 @@ public class TimeManager : MonoBehaviour
     public bool isNight;
 
     private DateTime nextDay;
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,7 @@ public class TimeManager : MonoBehaviour
         sunriseTime = TimeSpan.FromHours(sunriseHour);
         sunsetTime = TimeSpan.FromHours(sunsetHour);
         UpdateNextDay();
+        
     }
 
     // Update is called once per frame
@@ -70,7 +72,6 @@ public class TimeManager : MonoBehaviour
 
             isNight = false;
             dayPercentage = (float) percentage;
-        
 
         } else { // nightTime
             TimeSpan sunsetToSunRiseDuration = CalculateTimeDifference(sunsetTime, sunriseTime);
