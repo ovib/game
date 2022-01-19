@@ -5,10 +5,6 @@
 
 > _Gli abitanti passano le giornate a raccogliere frammenti di sole per combattere l’allungarsi della notte._
 
-## Installazione 
-- Clonare la repository e compilare il progetto da Unity
-- In alternativa installre il file 2050_GAME.apk per provare il gioco subito
-
 ## Come si gioca
  - L'obiettivo del gioco è sopravviere il più possibile 
  - Trascina il dito sullo schermo per muovere il personaggio
