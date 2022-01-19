@@ -30,7 +30,7 @@ public class TimeManager : MonoBehaviour
 
     private DateTime nextDay;
     
-
+    private bool started = false; // true when player touches the screen
 
     // Start is called before the first frame update
     void Start()
@@ -45,9 +45,11 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateTimeOfDay();
-        RotateSun();
-        NewDayRoutine();
+        if(started){
+            UpdateTimeOfDay();
+            RotateSun();
+            NewDayRoutine();
+        }
     }
 
     private void UpdateTimeOfDay(){
@@ -146,5 +148,9 @@ public class TimeManager : MonoBehaviour
 
     private void IncreaseDifficulty(){
         timeMultiplier += timeMultiplier * percentageIncreaseOnNewDay;
+    }
+
+    public void StartTime(){
+        started = true;
     }
 }

@@ -16,11 +16,16 @@ public class WoodSticksGenerator : MonoBehaviour
 
     private System.Random rand;
     private GameObject[] generatedWoodSticks;
+
+    private WoodButtonController wbc;
+
+
     void Start()
     {
         generatedWoodSticks = new GameObject[num];
         rand = new System.Random();
-
+        GameObject woodButton = GameObject.Find("InGameUI").transform.Find("WoodButton").gameObject;
+        wbc =  woodButton.GetComponent<WoodButtonController>();
         Generate();
     }
 
@@ -35,6 +40,7 @@ public class WoodSticksGenerator : MonoBehaviour
             
             if(!willCollide){
                 generatedWoodSticks[count] = Instantiate(WoodStickPrefab, new Vector3(posX, posY, posZ), Quaternion.Euler(0, 90, 0));
+                generatedWoodSticks[count].GetComponent<WoodStickController>().woodButtonController = wbc;
                 count++;
             } 
         }

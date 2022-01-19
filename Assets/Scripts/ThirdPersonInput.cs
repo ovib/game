@@ -21,10 +21,13 @@ public class ThirdPersonInput : MonoBehaviour
     private Transform objectTransform; // includes camera
     private Transform modelTransform;
     private CharacterController myCaracterController;
-    private Animator animator;
-    private float verticalMovement;
-    private float horizontalMovement;
 
+    private Animator animator;
+    
+    [System.NonSerialized]
+    public float verticalMovement;
+    [System.NonSerialized]
+    public float horizontalMovement;
 
     // Start is called before the first frame update
     void Start()

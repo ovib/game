@@ -109,7 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minutes: 30
-  timeManager: {fileID: 0}
 --- !u!1 &4220784700168182230
 GameObject:
   m_ObjectHideFlags: 0

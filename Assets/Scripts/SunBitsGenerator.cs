@@ -6,6 +6,7 @@ using System;
 public class SunBitsGenerator : MonoBehaviour
 {
     public GameObject sunBitPrefab;
+    public AudioClip audioClip;
     public int num = 10;
     public float minPosX = -88;
     public float maxPosX = 90;
@@ -36,6 +37,10 @@ public class SunBitsGenerator : MonoBehaviour
             
             if(!willCollide){
                 generatedSunBits[count] = Instantiate(sunBitPrefab, new Vector3(posX, posY, posZ), Quaternion.identity);
+                AudioSource audioSource =generatedSunBits[count].AddComponent<AudioSource>();
+                audioSource.clip = audioClip;
+                audioSource.playOnAwake = false;
+                
                 count++;
             }
         }

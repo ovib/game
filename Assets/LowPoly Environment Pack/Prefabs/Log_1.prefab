@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33142601234234008}
   - component: {fileID: 23289968634786746}
   - component: {fileID: 600587569}
-  - component: {fileID: 600587570}
+  - component: {fileID: -3879747634169181975}
   m_Layer: 0
   m_Name: Log_1
   m_TagString: Untagged
@@ -98,7 +98,7 @@ CapsuleCollider:
   m_Height: 1.32
   m_Direction: 2
   m_Center: {x: -0.03414088, y: 0.074669786, z: 0.03664398}
---- !u!114 &600587570
+--- !u!114 &-3879747634169181975
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,4 +110,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a52b55b5f0484cb092eba4d6d5a8379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  woodButtonController: {fileID: 0}
+  woodButton: {fileID: 0}
